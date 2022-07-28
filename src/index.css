@@ -1,3 +1,12 @@
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeflex/primeflex.css';
+
+:root {
+  --primary-color: #695cba;
+  --background-color: #f5fbff;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +19,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.primary-background {
+  background-color: var(--primary-color);
+}
+
+.main-background {
+  background-color: var(--background-color);
+}
+
+button.p-button {
+  box-shadow: none !important;
+}
+
+button.p-button.p-button-text:hover {
+  background-color: transparent !important;
 }
