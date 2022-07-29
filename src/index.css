@@ -1,10 +1,12 @@
 @import 'primereact/resources/themes/lara-light-indigo/theme.css';
 @import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
 @import 'primeflex/primeflex.css';
 
 :root {
   --primary-color: #695cba;
   --background-color: #f5fbff;
+  --star-color: #e59819;
 }
 
 body {
@@ -35,4 +37,8 @@ button.p-button {
 
 button.p-button.p-button-text:hover {
   background-color: transparent !important;
+}
+
+.p-rating .p-rating-icon.pi-star-fill {
+  color: var(--star-color);
 }

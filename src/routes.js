@@ -1,12 +1,17 @@
-import Home from "./pages/Home/Home";
+import Detail from './pages/Details/Details';
+import Home from './pages/Home/Home';
 
 export const routes = [
   {
-    path: "/",
+    path: '/',
     element: Home
   },
   {
-    path: "/*",
+    path: '/details',
+    element: Detail
+  },
+  {
+    path: '/*',
     element: Home
   }
 ];
