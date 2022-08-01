@@ -6,29 +6,50 @@ import { Column } from 'primereact/column';
 import itemImg from '../../assets/images/course-item.png';
 import reviewImg from '../../assets/images/review.png';
 import './Details.css';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Detail = () => {
+  const location = useLocation();
+  const data = location.state?.data;
+  const { title, rating, price, description } = data ? data : {};
+  const {
+    issuePrice,
+    quantityIssued,
+    issueDate,
+    creator,
+    owner,
+    network,
+    contractAddress,
+    tokenID,
+    nftType,
+    careerType,
+    courseType,
+    duration
+  } = data?.details ? data?.details : {};
+
   const item = {
     img: itemImg,
-    title: 'Run Project Effectively',
-    rating: 4,
-    price: 1,
-    description:
-      'Learn how to Effectively analyze, plan, execute, and manage projects that consistently accomplish company objectives',
+    title: title ? title : 'Run Project Effectively',
+    rating: rating ? rating : 4,
+    price: price ? price : 1,
+    description: description
+      ? description
+      : 'Learn how to Effectively analyze, plan, execute, and manage projects that consistently accomplish company objectives',
     details: {
-      issuePrice: '10 Points',
-      quantityIssued: 500,
-      issueDate: '15/07/2022',
-      creator: 'LienNTT',
-      owner: 'LienNTT',
-      network: 'Aura',
-      contractAddress: '0x3ca0...76FT',
-      tokenID: 1000030309,
-      nftType: 'Mentorship',
-      careerType: 'Project Management',
-      courseType: 'Consulting',
-      duration: '20 hrs'
+      issuePrice: issuePrice ? issuePrice : '10 Points',
+      quantityIssued: quantityIssued ? quantityIssued : 500,
+      issueDate: issueDate
+        ? issueDate.toLocaleDateString()
+        : new Date().toLocaleDateString(),
+      creator: creator ? creator : 'LienNTT',
+      owner: owner ? owner : 'LienNTT',
+      network: network ? network : 'Aura',
+      contractAddress: contractAddress ? contractAddress : '0x3ca0...76FT',
+      tokenID: tokenID ? tokenID : 1000030309,
+      nftType: nftType ? nftType : 'Mentorship',
+      careerType: careerType ? careerType : 'Project Management',
+      courseType: courseType ? courseType : 'Consulting',
+      duration: duration ? duration : '20 hrs'
     }
   };
 
@@ -52,7 +73,7 @@ const Detail = () => {
       name: 'LienNTT',
       action: 'Created',
       price: '10 Points',
-      time: '15/07/2022'
+      time: new Date().toLocaleDateString()
     }
   ];
 
@@ -66,10 +87,6 @@ const Detail = () => {
       rating: 5
     }
   ];
-
-  let { id } = useParams();
-
-  console.log(id);
 
   return (
     <div className="flex w-full">
@@ -91,6 +108,7 @@ const Detail = () => {
             className="p-button-success p-button-sm m-1"
           />
         </div>
+        <Button label="List NFT" className="p-button-info p-button-sm mt-1" />
       </div>
       <div className="flex flex-column w-3">
         <div>
