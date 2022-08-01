@@ -5,11 +5,24 @@ import { Button } from 'primereact/button';
 import { InputNumber } from 'primereact/inputnumber';
 import { Calendar } from 'primereact/calendar';
 import { FileUpload } from 'primereact/fileupload';
+import { Dropdown } from 'primereact/dropdown';
 import { useNavigate } from 'react-router-dom';
+import itemImg from '../../assets/images/course-item.png';
 import './Create.css';
 
 const Create = () => {
-  const [name, setName] = useState();
+  const networkOptions = ['Aura', 'BSC'];
+  const nftTypeOptions = ['Mentorship', 'Other'];
+  const careerTypeOptions = [
+    'Project Management',
+    'Developer',
+    'Tester',
+    'BA',
+    'Other'
+  ];
+  const courseTypeOptions = ['Consulting', 'Other'];
+
+  const [name, setName] = useState('');
   const [description, setDescription] = useState();
   const [issuePrice, setIssuePrice] = useState(null);
   const [quantityIssued, setQuantityIssued] = useState();
@@ -70,6 +83,7 @@ const Create = () => {
     iconOnly: true,
     className: 'custom-choose-btn p-button-rounded p-button-outlined w-3rem'
   };
+
   const cancelOptions = {
     icon: 'pi pi-fw pi-times',
     iconOnly: true,
@@ -80,7 +94,29 @@ const Create = () => {
   const navigate = useNavigate();
 
   const createNFT = () => {
-    navigate('/details');
+    const item = {
+      img: itemImg,
+      title: name,
+      rating: 0,
+      price: 1,
+      description: description,
+      details: {
+        issuePrice: issuePrice,
+        quantityIssued: quantityIssued,
+        issueDate: issueDate,
+        creator: 'LienNTT',
+        owner: 'LienNTT',
+        network: network,
+        contractAddress: '0x3ca0...76FT',
+        tokenID: 1000030309,
+        nftType: nftType,
+        careerType: careerType,
+        courseType: courseType,
+        duration: duration
+      }
+    };
+
+    navigate('/details', { state: { status: 'create', data: item } });
   };
 
   const validateForm = () => {
@@ -165,30 +201,34 @@ const Create = () => {
         <div className="col-4">
           <div className="field col-12">
             <label className="font-semibold">Network*</label>
-            <InputText
+            <Dropdown
               value={network}
-              onChange={(e) => setNetwork(e.target.value)}
+              options={networkOptions}
+              onChange={(e) => setNetwork(e.value)}
             />
           </div>
           <div className="field col-12">
             <label className="font-semibold">NFT Type*</label>
-            <InputText
+            <Dropdown
               value={nftType}
-              onChange={(e) => setNFTType(e.target.value)}
+              options={nftTypeOptions}
+              onChange={(e) => setNFTType(e.value)}
             />
           </div>
           <div className="field col-12">
             <label className="font-semibold">Career Type*</label>
-            <InputText
+            <Dropdown
               value={careerType}
-              onChange={(e) => setCareerType(e.target.value)}
+              options={careerTypeOptions}
+              onChange={(e) => setCareerType(e.value)}
             />
           </div>
           <div className="field col-12">
             <label className="font-semibold">Course Type*</label>
-            <InputText
+            <Dropdown
               value={courseType}
-              onChange={(e) => setCourseType(e.target.value)}
+              options={courseTypeOptions}
+              onChange={(e) => setCourseType(e.value)}
             />
           </div>
           <div className="field col-12">
