@@ -6,6 +6,7 @@ import { InputNumber } from 'primereact/inputnumber';
 import { Calendar } from 'primereact/calendar';
 import { FileUpload } from 'primereact/fileupload';
 import { Dropdown } from 'primereact/dropdown';
+import { Checkbox } from 'primereact/checkbox';
 import { useNavigate } from 'react-router-dom';
 import itemImg from '../../assets/images/course-item.png';
 import './Create.css';
@@ -32,6 +33,7 @@ const Create = () => {
   const [careerType, setCareerType] = useState();
   const [courseType, setCourseType] = useState();
   const [duration, setDuration] = useState();
+  const [agreement, setAgreement] = useState(false);
 
   const [errors, setErrors] = useState({});
 
@@ -241,8 +243,19 @@ const Create = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-content-end mr-2 mt-auto mb-2">
-        <Button label="Create NFT" onClick={createNFT} />
+      <div className="flex justify-content-between mr-2 mt-auto mb-2">
+        <div className="field-checkbox mb-0">
+          <Checkbox
+            inputId="agreement"
+            checked={agreement}
+            onChange={(e) => setAgreement(e.checked)}
+          />
+          <label htmlFor="agreement" className="text-sm">
+            I understand and agree to <b>F-Trade Rules</b> and{' '}
+            <b>Terms of service</b>.
+          </label>
+        </div>
+        <Button label="Create NFT" disabled={!agreement} onClick={createNFT} />
       </div>
     </div>
   );
