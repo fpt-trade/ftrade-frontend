@@ -46,11 +46,11 @@ const Login = () => {
           </div>
           <div className="field-checkbox mb-4">
             <Checkbox
-              inputId="binary"
+              inputId="remember"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.checked)}
             />
-            <label>Remember me</label>
+            <label htmlFor="remember">Remember me</label>
           </div>
           <Button
             className="login-button mb-3"
