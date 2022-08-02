@@ -19,6 +19,6 @@ export const loadingSlice = createSlice({
 
 export const { showLoading, hideLoading } = loadingSlice.actions;
 
-export const selectLoading = (state) => state.loading;
+export const selectLoading = (state) => state.loading.showLoading;
 
 export default loadingSlice.reducer;
