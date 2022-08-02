@@ -1,6 +1,7 @@
 import { Button } from 'primereact/button';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { InputText } from 'primereact/inputtext';
 import { Checkbox } from 'primereact/checkbox';
 import { Password } from 'primereact/password';
@@ -15,9 +16,11 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onLogin = () => {
     dispatch(login({ userName: 'LienNTK', email: 'LienNTK@fsoft.com.vn' }));
+    navigate('/home');
   };
 
   return (
@@ -36,7 +39,7 @@ const Login = () => {
             <label className="mb-1">Password</label>
             <Password
               value={password}
-              onChange={(e) => password(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               toggleMask
               feedback={false}
             />
