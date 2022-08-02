@@ -7,7 +7,8 @@ import Login from './pages/Login/Login';
 export const routes = [
   {
     path: '/',
-    element: Home
+    element: Home,
+    guard: true
   },
   {
     path: '/login',
@@ -15,19 +16,23 @@ export const routes = [
   },
   {
     path: '/details',
-    element: Detail
+    element: Detail,
+    guard: true
   },
   {
     path: '/create',
-    element: Create
+    element: Create,
+    guard: true
   },
   {
     path: '/list-nft',
-    element: ListNFT
+    element: ListNFT,
+    guard: true
   },
   {
     path: '/*',
-    element: Home
+    element: Home,
+    guard: true
   }
 ];
 

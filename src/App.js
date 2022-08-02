@@ -1,8 +1,10 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import routes from './routes';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import RouteGuard from './components/RouteGuard/RouteGuard';
 import { useSelector } from 'react-redux';
 import { selectUser } from './redux/slices/user';
 
@@ -25,13 +27,23 @@ function App() {
           }`}
         >
           <Routes>
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                element={<route.element />}
-              />
-            ))}
+            {routes.map((route) => {
+              return (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={
+                    <React.Suspense>
+                      {route.guard ? (
+                        <RouteGuard>{<route.element />}</RouteGuard>
+                      ) : (
+                        <route.element />
+                      )}
+                    </React.Suspense>
+                  }
+                />
+              );
+            })}
           </Routes>
         </div>
 
