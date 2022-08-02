@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Rating } from 'primereact/rating';
 import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
@@ -10,6 +11,8 @@ import { useLocation } from 'react-router-dom';
 
 const Detail = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const data = location.state?.data;
   const { title, rating, price, description } = data ? data : {};
   const {
@@ -108,7 +111,11 @@ const Detail = () => {
             className="p-button-success p-button-sm m-1"
           />
         </div>
-        <Button label="List NFT" className="p-button-info p-button-sm mt-1" />
+        <Button
+          label="List NFT"
+          className="p-button-info p-button-sm mt-1"
+          onClick={() => navigate('/list-nft')}
+        />
       </div>
       <div className="flex flex-column w-3">
         <div>

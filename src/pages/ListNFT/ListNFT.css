@@ -1,0 +1,10 @@
+.set-price-group input {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.set-price-group .p-dropdown {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
