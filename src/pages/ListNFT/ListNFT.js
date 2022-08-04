@@ -20,7 +20,10 @@ const ListNFT = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const options = ['Set Price', 'Highest Bid'];
+  const options = [
+    { label: 'Set Price', value: 'Set Price' },
+    { label: 'Highest Bid', value: 'Highest Bid', disabled: true }
+  ];
   const [selectMode, setSelectMode] = useState('Set Price');
   const [amount, setAmount] = useState(1);
   const [newPrice, setNewPrice] = useState();
@@ -107,6 +110,7 @@ const ListNFT = () => {
           <div className="text-xl font-bold">{item.price} NFT</div>
           <div className="mt-3">
             <SelectButton
+              unselectable={false}
               value={selectMode}
               options={options}
               onChange={(e) => setSelectMode(e.value)}
