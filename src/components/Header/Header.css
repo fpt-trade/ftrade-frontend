@@ -1,0 +1,21 @@
+.logo {
+  height: 70px;
+  width: 70px;
+}
+
+.header-button.p-selectbutton .p-button.p-highlight {
+  background: #ffffff;
+  color: #495057;
+  border-color: #ced4da;
+}
+
+.header-button.p-selectbutton .p-button.p-focus:focus {
+  box-shadow: none;
+}
+.avatar-icon{
+  margin: 10px;
+}
+.logout_button{
+  margin-top: 20px;
+  border-top: 1px solid #a5b7c76b;
+}

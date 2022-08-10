@@ -1,0 +1,83 @@
+.bg-gradient-color {
+    background: linear-gradient(to top right, #FFF2F7, #E9F3FF, #E5FEE6 110%);
+}
+
+.profile-banner {
+    height: 200px;
+    border-radius: 0.5rem;
+}
+.my-profile-page .active {
+    color: #f8953f;
+}
+.profile-banner-content {
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.p-avatar.p-avatar-xl.avata-banner {
+    width: 150px;
+    height: 150px;
+}
+
+.profile-User {
+    top: 0;
+    left: 15%;
+}
+
+.profile-follow {
+    color: rgba(255, 166, 0, 0.829);
+}
+
+.profile-UserName {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.headerMenu-sidebar {
+    color: #9c9393;
+}
+
+.btn-sort {
+    border: none !important;
+    color: #635b5b !important;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 15px;
+    font-size: 13px;
+}
+
+.my-profile-page .btn-select {
+    color: #635b5b !important;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+.my-profile-page .p-dropdown-label.p-inputtext.p-placeholder {
+    padding: 0px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.action-btn.p-button {
+    font-size: 13px;
+    margin-right: 5px;
+    padding: 10px;
+    border: none;
+}
+
+.action-btn.p-button-secondary {
+    background-color: rgb(192, 192, 192);
+    border-color: rgb(192, 192, 192);
+}
+
+.profile-detail .underline-title{
+    border: 2px var(--primary-color) solid;
+    border-radius: 8px;
+    margin: 0.4rem 0 0.6rem 0;
+    width: 100px;
+}
+.card-certificate .p-card-body{
+    padding: 0;
+}

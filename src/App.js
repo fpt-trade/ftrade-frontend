@@ -1,24 +1,83 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef } from "react";
+import { Routes, Route } from "react-router-dom";
+import routes from "./routes";
+import { Toast } from "primereact/toast";
+
+import "./App.css";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import LoadingIndicator from "./components/LoadingIndicator/LoadingIndicator";
+import RouteGuard from "./components/RouteGuard/RouteGuard";
+import { useSelector } from "react-redux";
+import { selectUser } from "./redux/slices/user";
+import { selectLoading } from "./redux/slices/loading";
+import { selectToast } from "./redux/slices/toast";
 
 function App() {
+  const toast = useRef(null);
+  const user = useSelector(selectUser);
+  const showLoading = useSelector(selectLoading);
+  const toastConfig = useSelector(selectToast);
+
+  useEffect(() => {
+    toast &&
+      toast.current &&
+      Object.keys(toastConfig).length > 0 &&
+      toast.current.show({ ...toastConfig });
+  }, [toastConfig]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      {showLoading ? <LoadingIndicator /> : null}
+      <Toast ref={toast} />
+      <div
+        className={`app-wrapper flex flex-column min-h-screen primary-background ${
+          user.isLogin && "p-3"
+        }`}
+      >
+        <>{user.isLogin && <Header />}</>
+
+        <div
+          className={`main-background border-round-lg flex flex-grow-1 align-items-center ${
+            user.isLogin && "p-4 my-3"
+          }`}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Routes>
+            {routes.map((route) => {
+              return (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={
+                    <React.Suspense>
+                      {route.guard ? (
+                        <RouteGuard>{<route.element />}</RouteGuard>
+                      ) : (
+                        <route.element />
+                      )}
+                    </React.Suspense>
+                  }
+                >
+                  {route?.children?.map((children) => (
+                    <Route
+                      key={children.path}
+                      path={children.path}
+                      element={
+                        <React.Suspense>
+                          <children.element />
+                        </React.Suspense>
+                      }
+                    />
+                  ))}
+                </Route>
+              );
+            })}
+          </Routes>
+        </div>
+
+        <>{user.isLogin && <Footer />}</>
+      </div>
+    </>
   );
 }
 

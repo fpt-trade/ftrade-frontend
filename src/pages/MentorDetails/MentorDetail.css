@@ -1,0 +1,42 @@
+.mentor-detail-page .mentor-avatar.p-avatar.p-avatar-xl {
+  width: 4em;
+  height: 4em;
+}
+
+.mentor-detail-page .item-wrapper {
+  width: 15rem;
+  height: 10rem;
+}
+
+.mentor-detail-page .history-transaction-wrapper {
+  height: 75%;
+}
+
+.mentor-detail-page .related-course-wrapper .related-course:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.wallet-dialog .meta-text {
+  font-family: monospace;
+  margin: 0 auto;
+}
+
+.wallet-dialog .link:hover {
+  cursor: pointer;
+}
+
+.wallet-dialog .link-meta {
+  color: #cc9304;
+}
+
+.wallet-dialog .description {
+  color: #bdbdbd;
+}
+
+.wallet-dialog .p-dialog-header {
+  padding: 1rem;
+}
+
+.wallet-dialog .p-dialog-content {
+  padding: 0 3rem 2rem 3rem;
+}

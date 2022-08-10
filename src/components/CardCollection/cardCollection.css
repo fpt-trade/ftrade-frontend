@@ -1,0 +1,19 @@
+.card-Collection .p-card-title{
+    font-size: 1.125rem;
+    color:black;
+}
+.card-Collection .p-card-content{
+    padding: 0;
+}
+.card-Collection .p-card-body{
+    padding: 0;
+}
+.card-descriptions{
+    line-height: 1.5;
+    color: #6A5ACD ;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 20px;
+    padding: 0px;
+}
