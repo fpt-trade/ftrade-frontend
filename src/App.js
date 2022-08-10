@@ -31,7 +31,7 @@ function App() {
       {showLoading ? <LoadingIndicator /> : null}
       <Toast ref={toast} />
       <div
-        className={`app-wrapper flex flex-column h-screen primary-background ${
+        className={`app-wrapper flex flex-column min-h-screen primary-background ${
           user.isLogin && 'p-3'
         }`}
       >

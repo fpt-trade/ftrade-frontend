@@ -1,0 +1,53 @@
+.mentorship-page {
+  width: 100%;
+}
+
+.mentorship-page .p-card.p-component {
+  box-shadow: none;
+}
+
+.mentorship-page .tool-box .p-card-content {
+  padding: 0;
+}
+
+.mentorship-page .p-card.p-component.tool-interest {
+  width: 50%;
+}
+
+.mentorship-page .select-interest,
+.mentorship-pag .search-mentor {
+  width: 100%;
+}
+
+.mentorship-page .card-column .p-card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.mentorship-page .card-column.content-button .p-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.mentorship-page .toggle-button {
+  font-size: 2em;
+}
+
+.mentorship-page .circle-button {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgba(0, 181, 62, 0.39);
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+
+.mentorship-page .circle-button .main-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-size: 2em;
+}

@@ -5,29 +5,31 @@ import personalBrand from '../../assets/images/personal-brand.png';
 import itemsTrade from '../../assets/images/items-trade.png';
 import events from '../../assets/images/events.png';
 import './Home.css';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const items = [
     {
       title: 'Mentorship',
       img: mentorship,
-      url: ''
+      url: '/mentorship',
     },
     {
       title: 'Personal Brand',
       img: personalBrand,
-      url: ''
+      url: '',
     },
     {
       title: 'Items Trade',
       img: itemsTrade,
-      url: ''
+      url: '',
     },
     {
       title: 'Events',
       img: events,
-      url: ''
-    }
+      url: '',
+    },
   ];
 
   return (
@@ -40,6 +42,7 @@ const Home = () => {
           <div
             key={item.title}
             className="flex flex-column home-item-wrapper border-2 border-solid border-200 p-4 border-round-lg m-3 bg-white cursor-pointer"
+            onClick={() => navigate(item.url)}
           >
             <img className="w-full" src={item.img} alt={item.title} />
             <div className="text-center text-md font-medium mt-auto">
